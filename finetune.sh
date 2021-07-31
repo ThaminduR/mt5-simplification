@@ -1,0 +1,14 @@
+python mT5-finetune/finetune.py \
+    --model_name_or_path google/mt5-small \
+    --do_train \
+    --do_eval \
+    --source_lang en \
+    --target_lang si \
+    --source_prefix "translate English to Sinhala: " \
+    --train_file si-en-json/si-en.json \
+    --validation_file si-en-json/si-en.valid.json \
+    --output_dir /output/tst-translation \
+    --per_device_train_batch_size=4 \
+    --per_device_eval_batch_size=4 \
+    --overwrite_output_dir \
+    --predict_with_generate
