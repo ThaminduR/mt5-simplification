@@ -405,7 +405,6 @@ def main():
         )
 
     def preprocess_function(examples):
-        print(examples)
         inputs = examples[source_lang]
         targets = examples[target_lang]
         inputs = [prefix + inp for inp in inputs]
