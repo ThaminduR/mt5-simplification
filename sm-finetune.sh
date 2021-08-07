@@ -1,0 +1,14 @@
+nohup python mT5-finetune/finetune.py \
+    --model_name_or_path google/mt5-base \
+    --do_train \
+    --do_eval \
+    --source_lang comp \
+    --target_lang simp \
+    --source_prefix "simplification: " \
+    --train_file simplification-json/wikilarge.json \
+    --validation_file simplification-json/asset0.json \
+    --output_dir output/tst-simplification \
+    --per_device_train_batch_size=4 \
+    --per_device_eval_batch_size=4 \
+    --save_steps=1000 \
+    --predict_with_generate &
