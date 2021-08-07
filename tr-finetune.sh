@@ -1,5 +1,5 @@
 nohup python mT5-finetune/finetune.py \
-    --model_name_or_path google/mt5-base \
+    --model_name_or_path mt5-base \
     --do_train \
     --do_eval \
     --source_lang en \
@@ -11,4 +11,5 @@ nohup python mT5-finetune/finetune.py \
     --per_device_train_batch_size=4 \
     --per_device_eval_batch_size=4 \
     --save_steps=1000 \
+    --report_to="wandb" \
     --predict_with_generate &
