@@ -19,7 +19,8 @@ if __name__ == '__main__':
     outfile = open(args.output,'w')
     source_file = open(args.filepath, 'r')
     source_sentences = source_file.readlines()
-
+    
+    logging.basicConfig(level=logging.INFO)
     logging.info("Starting predictions for %s task." % args.task)
     logging.info("%d Source Sentences found." % len(source_sentences))
     logging.info("Predicting %d Sentences." % args.count)
