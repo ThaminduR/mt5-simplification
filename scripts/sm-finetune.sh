@@ -5,8 +5,8 @@ nohup python mT5-finetune/finetune.py \
     --source_lang comp \
     --target_lang simp \
     --source_prefix "simplification: " \
-    --train_file simplification-json/wikilarge.json \
-    --validation_file simplification-json/asset0.json \
+    --train_file XX \
+    --validation_file XX \
     --output_dir output/tst-simplification \
     --per_device_train_batch_size=4 \
     --per_device_eval_batch_size=4 \
