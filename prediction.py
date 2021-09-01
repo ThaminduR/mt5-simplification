@@ -13,10 +13,10 @@ if __name__ == '__main__':
     parser.add_argument('--max_length', type=int, help=f'Max length of predicted sentence. Defaults to 700.')
     parser.add_argument('--output', type=str, help=f'Output file name.', required=True)
     parser.add_argument('--verbosity', type=str,help=f'Specify verbosity using h (High), m (Medium), l (Low). Defaults to m.')
-    parser.add_argument('--temp', type=str,help=f'Temperature for random sampling.')
-    parser.add_argument('--topk', type=str,help=f'Top k for random sampling.')
-    parser.add_argument('--topp', type=str,help=f'Top p for random sampling.')
-    parser.add_argument('--rep_pen', type=str,help=f'Repetition penalty.')
+    parser.add_argument('--temp', type=int,help=f'Temperature for random sampling.')
+    parser.add_argument('--topk', type=int,help=f'Top k for random sampling.')
+    parser.add_argument('--topp', type=int,help=f'Top p for random sampling.')
+    parser.add_argument('--rep_pen', type=int,help=f'Repetition penalty.')
 
     args = parser.parse_args()
 
