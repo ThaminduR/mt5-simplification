@@ -13,6 +13,10 @@ if __name__ == '__main__':
     parser.add_argument('--max_length', type=int, help=f'Max length of predicted sentence. Defaults to 700.')
     parser.add_argument('--output', type=str, help=f'Output file name.', required=True)
     parser.add_argument('--verbosity', type=str,help=f'Specify verbosity using h (High), m (Medium), l (Low). Defaults to m.')
+    parser.add_argument('--temp', type=str,help=f'Temperature for random sampling.')
+    parser.add_argument('--topk', type=str,help=f'Top k for random sampling.')
+    parser.add_argument('--topp', type=str,help=f'Top p for random sampling.')
+    parser.add_argument('--rep_pen', type=str,help=f'Repetition penalty.')
 
     args = parser.parse_args()
 
@@ -35,10 +39,7 @@ if __name__ == '__main__':
     logging.info("Model and Tokenizer loaded successfully. Starting predictions.")
 
     # Set max length
-    if (args.max_length):
-        max_length = args.max_length
-    else:
-        max_length = 700
+    max_length = args.max_length if (args.max_length) else 700
     logging.info("Max length set to %d." % max_length)
 
     # Set verbosity.
@@ -49,10 +50,13 @@ if __name__ == '__main__':
         verbose=1000
 
     # Set count
-    if(args.count):
-        count= args.count
-    else:
-        count = len(source_sentences)
+    count= args.count if(args.count) else len(source_sentences)
+
+    temp = args.temp if(args.temp) else 1.0
+    topk = args.topk if(args.topk) else 50
+    topp = args.topp if(args.topp) else 1.0
+    rep_pen = args.rep_pen if(args.rep_pen) else 1.0
+
         
     i = 0
     for line in source_sentences[:count]:
@@ -61,7 +65,7 @@ if __name__ == '__main__':
 
         input_ids = tokenizer(line, return_tensors="pt").input_ids
         input_ids = input_ids.to(device)
-        output_ids = model.generate(input_ids=input_ids, do_sample=True,temperature=0.8, max_length=max_length)
+        output_ids = model.generate(input_ids=input_ids, do_sample=True,temperature=temp, max_length=max_length, top_k=topk, top_p=topp, repetition_penalty= rep_pen )
         out = tokenizer.decode(output_ids[0])
 
         # Remove pad and eos tokens.
