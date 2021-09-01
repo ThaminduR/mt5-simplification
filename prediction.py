@@ -55,16 +55,16 @@ if __name__ == '__main__':
     count= args.count if(args.count) else len(source_sentences)
 
     temp = args.temp if(args.temp) else 1.0
-    logging.info("Temperature set to %d." % temp)
+    logging.info("Temperature set to %f." % temp)
 
     topk = args.topk if(args.topk) else 50
     logging.info("Top k set to %d." % topk)
 
     topp = args.topp if(args.topp) else 1.0
-    logging.info("Top p set to %d." % topp)
+    logging.info("Top p set to %f." % topp)
 
     rep_pen = args.rep_pen if(args.rep_pen) else 1.0
-    logging.info("Repeptition penalty set to %d." % rep_pen)
+    logging.info("Repeptition penalty set to %f." % rep_pen)
 
         
     i = 0
