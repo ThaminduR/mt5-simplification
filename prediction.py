@@ -14,7 +14,7 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=str, help=f'Output file name.', required=True)
     parser.add_argument('--verbosity', type=str,help=f'Specify verbosity using h (High), m (Medium), l (Low). Defaults to m.')
     parser.add_argument('--temp', type=float,help=f'Temperature for random sampling.')
-    parser.add_argument('--topk', type=float,help=f'Top k for random sampling.')
+    parser.add_argument('--topk', type=int,help=f'Top k for random sampling.')
     parser.add_argument('--topp', type=float,help=f'Top p for random sampling.')
     parser.add_argument('--rep_pen', type=float,help=f'Repetition penalty.')
 
