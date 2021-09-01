@@ -49,13 +49,22 @@ if __name__ == '__main__':
     elif args.verbosity=="l":
         verbose=1000
 
+    logging.info("Verbosity set to %s." % args.verbosity)
+
     # Set count
     count= args.count if(args.count) else len(source_sentences)
 
     temp = args.temp if(args.temp) else 1.0
+    logging.info("Temperature set to %d." % args.temp)
+
     topk = args.topk if(args.topk) else 50
+    logging.info("Top k set to %d." % args.topk)
+
     topp = args.topp if(args.topp) else 1.0
+    logging.info("Top p set to %d." % args.topp)
+
     rep_pen = args.rep_pen if(args.rep_pen) else 1.0
+    logging.info("Repeptition penalty set to %d." % args.rep_pen)
 
         
     i = 0
